@@ -1,9 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const PORT = 3000
 const ENDPOINT = '/api/'
-
+PORT = process.env.PORT
 
 const lista_produtos = { 
   produtos: [ 
@@ -81,7 +80,6 @@ app.delete (ENDPOINT + 'produtos/:id', (req, res, next) => {
       res.status(404).json ({ message: 'Produto não encontrado.' })
   }
 })
-
 
 app.listen (PORT, () => {
   console.log (`Servidor rodando em http://localhost:${PORT}`)
